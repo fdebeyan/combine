@@ -47,8 +47,8 @@ void writetoFile(string content, string dir, int fileNo){
 }
 
 void IcgrepTest::prepare(){
-	clearDir("../icgrep/combine/icgrep-test/regs");
-	clearDir("../icgrep/combine/icgrep-test/files");
+	clearDir("../icgrep/combine/regs");
+	clearDir("../icgrep/combine/files");
 	resetBash("../icgrep/combine/icgrep-test/grep/icgrep-bash.sh");
 	resetBash("../icgrep/combine/icgrep-test/grep/grep-bash.sh");
 	resetBash("../icgrep/combine/icgrep-test/pcre/icgrep-bash.sh");
@@ -75,8 +75,8 @@ void IcgrepTest::buildTest(string re, vector<string> flags, re::RE_Syntax syntax
 	StringGenerator strGen;
 	writetoFile(strGen.generate(re, flags, syntax) + "\n", "../icgrep/combine/icgrep-test/files/file", testNum);
 
-	string reDir = "../icgrep/combine/icgrep-test/regs/reg";
-	string strDir = "../icgrep/combine/icgrep-test/files/file";
+	string reDir = "../icgrep/combine/regs/reg";
+	string strDir = "../icgrep/combine/files/file";
 
 	if (syntax == re::RE_Syntax::ERE){
 		string icgrepScript = "../icgrep/combine/icgrep-test/grep/icgrep-bash.sh";

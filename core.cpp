@@ -68,8 +68,8 @@ int main (int argc, char *argv[]) {
     }
 	else {
 		IcgrepTest ictest;
-		system("exec rm -r ../icgrep/combine/icgrep-test/regs/*");
-		system("exec rm -r ../icgrep/combine/icgrep-test/files/*");
+		system("exec rm -r ../icgrep/combine/regs/*");
+		system("exec rm -r ../icgrep/combine/files/*");
 		ictest.prepare();
 
 		string csv = (argc > 1)? argv[1] : "../icgrep/combine/icGrep-output.csv";
