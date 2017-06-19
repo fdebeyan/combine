@@ -139,7 +139,7 @@ std::string RegexGen::getUnicode(){
 	if (syntax == re::RE_Syntax::ERE) {
 		std::vector<string> ucd;
 		ifstream file;
-		file.open("../rectcg/Unicode.txt");
+		file.open("../icgrep/combine/Unicode.txt");
 		string line;
 		while(getline(file, line)){
 			ucd.push_back(line);
@@ -359,6 +359,7 @@ re::RE_Syntax RegexGen::setSyntax(std::vector<string> header, std::vector<string
 
 std::vector<string> RegexGen::parseCC(std::vector<string> header, std::vector<string> row){
 	std::vector<string> ccList;
+
 	int colnum = 0;
 	for(auto col : row){
 		if (col != "false"){
@@ -442,7 +443,6 @@ std::string RegexGen::parseRE(std::vector<string> header, std::vector<string> ro
 	std::vector<string> fullRE;
 	std::vector<string> assertions;
 	CC ccHandler(header,row, syntax);
-
 	int random;
 	bool bref = false;
 	string first = "";

@@ -80,6 +80,7 @@ int main (int argc, char *argv[]) {
 		if (!file.is_open()){
 			cout<<"Could not open input file\n";
 		}
+
 		string line;
 		vector<string> row;
 		getline(file, line);
@@ -88,6 +89,7 @@ int main (int argc, char *argv[]) {
 		std::vector<testcase> Testcases;
 		while(getline(file, line)){
 			row = vectorizeLine(line);
+
 			RegexGen reGen(header, row);
 			ictest.buildTest(reGen.RE, reGen.flags, reGen.syntax, rownum);
 			++rownum;

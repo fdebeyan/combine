@@ -1,270 +1,171 @@
 #!/bin/bash
 
 echo "Starting bash file: ../icgrep/combine/icgrep-test/grep/grep-bash.sh"
-echo "^\W{0,0}((\w|[XYZ]))\u0CCD{38}\S*[^XYZ]{19,}\d+.{52,98}\N{Latin}?\t\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "^\N{Cyrillic}{0,150}(\S|\u1DD5)\d{64}[123]*\p{Armenian}{80,}([^abc]+)[ا-ي]{97,101}\t?\W\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -i -E -f ../icgrep/combine/icgrep-test/regs/reg1 ../icgrep/combine/icgrep-test/files/file1 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
 echo "" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep  '' ../icgrep/combine/icgrep-test/files/file2 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
 
-echo "\d{87,150}\t?[ا-ي]{0,40}\w\u0482[XYZ]+$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\s{11,171}\u1F93?\t{0,34}\w[XYZ]\d+$" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -i -E -f ../icgrep/combine/icgrep-test/regs/reg4 ../icgrep/combine/icgrep-test/files/file4 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "w\?\(.\{8,147\}\)l\{108\}\(N\|\S\)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "t\?l\{168,190\}d\{59\}\(\(.\|w\)\)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep  -f ../icgrep/combine/icgrep-test/regs/reg5 ../icgrep/combine/icgrep-test/files/file5 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "(\u083B|\W)(.{114,})\s+\W{0,7}\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -E '(\u083B|\W)(.{114,})\s+\W{0,7}\1'  ../icgrep/combine/icgrep-test/files/file7 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "(\S|.).{17,}\W+(\D{0,167})\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -i -E '(\S|.).{17,}\W+(\D{0,167})\1'  ../icgrep/combine/icgrep-test/files/file7 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "N*t\{58,87\}u\{190\}p\{0,31\}" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "u*N\{130,161\}L\{44\}p\{0,51\}" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -f ../icgrep/combine/icgrep-test/regs/reg8 ../icgrep/combine/icgrep-test/files/file8 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "^\S*\w[a-zA-Z0-9]{117}\s+$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -E -e '^\S*\w[a-zA-Z0-9]{117}\s+$'  ../icgrep/combine/icgrep-test/files/file10 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "^\u07AB*\S\s{131}\w+$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -E -e '^\u07AB*\S\s{131}\w+$'  ../icgrep/combine/icgrep-test/files/file10 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "L\{0,148\}\(t\+\)D\(notWord\|w\).\?\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -e 'L\{0,148\}\(t\+\)D\(notWord\|w\).\?\1' ../icgrep/combine/icgrep-test/files/file11 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "N\{0,99\}d\+\(t\)\(L\|w\)D\?\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -c -e 'N\{0,99\}d\+\(t\)\(L\|w\)D\?\1' ../icgrep/combine/icgrep-test/files/file11 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "\d\p{Gujarati}\N{Latin}{89,}\s?\u0D25+([হ্যালো]{8})\t\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\u04FB\d\s{75,}(\N{Cyrillic}?)\W+\p{Gujarati}{113}\t\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -i -E -f ../icgrep/combine/icgrep-test/regs/reg13 ../icgrep/combine/icgrep-test/files/file13 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "r\{46\}l\{0,64\}.\?t\{27,\}" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i 'r\{46\}l\{0,64\}.\?t\{27,\}' ../icgrep/combine/icgrep-test/files/file14 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
+echo "\S\{197\}notWord\{0,37\}r\?l\{70,\}" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -i '\S\{197\}notWord\{0,37\}r\?l\{70,\}' ../icgrep/combine/icgrep-test/files/file14 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
 
-echo "[^123]{63,166}\u1F8E+(\p{Tamil}|[XYZ]).{135}\d*" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\d{71,183}[abc]+(\u0E1D|.)[^XYZ]{129}\w*" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -E -f ../icgrep/combine/icgrep-test/regs/reg16 ../icgrep/combine/icgrep-test/files/file16 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "N\+.\{178,189\}\(p\|u\)t\{157,\}D\{0,66\}l\{166\}" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -i 'N\+.\{178,189\}\(p\|u\)t\{157,\}D\{0,66\}l\{166\}' ../icgrep/combine/icgrep-test/files/file17 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
+echo ".\+p\{34,140\}\(t\|u\)l\{70,\}\s\{0,150\}D\{97\}" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -c -i '.\+p\{34,140\}\(t\|u\)l\{70,\}\s\{0,150\}D\{97\}' ../icgrep/combine/icgrep-test/files/file17 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
 
-echo "^([0-9]{60,})\w\N{Gujarati}*\W?\D{99,165}(\u0CA8|\d)\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "^\N{Tamil}{54,}\u1B08\d*(\D?)\w{30,179}(\W|[A-Za-z])\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -E -f ../icgrep/combine/icgrep-test/regs/reg20 ../icgrep/combine/icgrep-test/files/file20 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "\D*.{77}\w{174,}\d{0,83}(\t|[^123])" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\d*.{151}\w{9,}[0-9]{0,62}([^abc]|\t)" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -E -f ../icgrep/combine/icgrep-test/regs/reg22 ../icgrep/combine/icgrep-test/files/file22 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "\D{84,}\S?\p{Kannada}{140,144}\t+" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\d{92,}\p{Latin}?\S{138,179}[^XYZ]+" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -E -f ../icgrep/combine/icgrep-test/regs/reg23 ../icgrep/combine/icgrep-test/files/file23 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "notWord\{0,154\}\(L\?\)\(l\|N\)u*\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\(L\{0,154\}\)u\?\(\S\|\S\)l*\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -f ../icgrep/combine/icgrep-test/regs/reg24 ../icgrep/combine/icgrep-test/files/file24 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "\S\{0,107\}d\{30,\}l\?u\{104\}r" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -i -e '\S\{0,107\}d\{30,\}l\?u\{104\}r' ../icgrep/combine/icgrep-test/files/file25 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "p\{0,59\}r\{125,\}\S\?u\{104\}d" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -c -i -e 'p\{0,59\}r\{125,\}\S\?u\{104\}d' ../icgrep/combine/icgrep-test/files/file25 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "(.{0,98})[a-zA-Z0-9]+(\D|\D)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "(\s{0,98})\D+(.|\d)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -i -E -f ../icgrep/combine/icgrep-test/regs/reg26 ../icgrep/combine/icgrep-test/files/file26 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "^udp\{55\}\S\{98,138\}notWord\(w\{0,98\}\)\s\+\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i '^udp\{55\}\S\{98,138\}notWord\(w\{0,98\}\)\s\+\1$' ../icgrep/combine/icgrep-test/files/file27 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
+echo "^upd\{75\}\(\S\{42,90\}\)tL\{0,42\}notWord\+\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -i '^upd\{75\}\(\S\{42,90\}\)tL\{0,42\}notWord\+\1$' ../icgrep/combine/icgrep-test/files/file27 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
 
-echo "lt\s\{112,\}.\(w\|N\)$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -e 'lt\s\{112,\}.\(w\|N\)$' ../icgrep/combine/icgrep-test/files/file28 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "lt\s\{155,\}.\(w\|N\)$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -i -e 'lt\s\{155,\}.\(w\|N\)$' ../icgrep/combine/icgrep-test/files/file28 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "^N*w\?D\{140\}.\+t$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -i '^N*w\?D\{140\}.\+t$' ../icgrep/combine/icgrep-test/files/file30 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
+echo "^.*w\?N\{187\}t\+D$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -c -i '^.*w\?N\{187\}t\+D$' ../icgrep/combine/icgrep-test/files/file30 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
 
-echo "^\S*\u0538+(\s|\w)\p{Latin}.[^abc]$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "^\p{Hebrew}+\u1398*(\w|.)[^123][123]\S$" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -E -f ../icgrep/combine/icgrep-test/regs/reg33 ../icgrep/combine/icgrep-test/files/file33 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "d\?t*u\{41\}" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c 'd\?t*u\{41\}' ../icgrep/combine/icgrep-test/files/file35 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
+echo "t\?u*r\{64\}" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -c 't\?u*r\{64\}' ../icgrep/combine/icgrep-test/files/file35 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
 
-echo "^Dr\{40,\}p\{169\}d\?\S\+.\snotWordL" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -e '^Dr\{40,\}p\{169\}d\?\S\+.\snotWordL' ../icgrep/combine/icgrep-test/files/file36 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "^d\s\{63,\}r\{111\}p\?D\+.\SnotWordL" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -c -e '^d\s\{63,\}r\{111\}p\?D\+.\SnotWordL' ../icgrep/combine/icgrep-test/files/file36 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "N\{56,189\}\(.\?\)p\{158,\}notWord\{0,103\}\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo ".\{79,126\}notWord\?p\{79,\}\(N\{0,138\}\)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -i -f ../icgrep/combine/icgrep-test/regs/reg38 ../icgrep/combine/icgrep-test/files/file38 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "\S{32,}[a-zA-Z0-9]{145}\w{37,164}" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\N{Syriac}{143,}\S{116}\w{153,168}" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -E -f ../icgrep/combine/icgrep-test/regs/reg39 ../icgrep/combine/icgrep-test/files/file39 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "[a-zA-Z0-9]?\W{37,164}\N{Gurmukhi}{145}" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -i -E -e '[a-zA-Z0-9]?\W{37,164}\N{Gurmukhi}{145}'  ../icgrep/combine/icgrep-test/files/file41 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\D?\N{Syriac}{153,168}\W{116}" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -c -i -E -e '\D?\N{Syriac}{153,168}\W{116}'  ../icgrep/combine/icgrep-test/files/file41 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "[a-zA-Z0-9]\u1C70?\W{135,}\S*.([^abc]+)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "[abc]{126,128}\S?\t{200}[^abc]*\D{127,}([0-9]+)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -E -f ../icgrep/combine/icgrep-test/regs/reg42 ../icgrep/combine/icgrep-test/files/file42 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "\s\{8,27\}N\+d\{36\}\(w*\)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "l\{0,168\}N\+\s\{139\}\(w*\)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -i -f ../icgrep/combine/icgrep-test/regs/reg43 ../icgrep/combine/icgrep-test/files/file43 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "\W?(\w*)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -E '\W?(\w*)\1'  ../icgrep/combine/icgrep-test/files/file45 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "(\W?)\w*\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -c -E '(\W?)\w*\1'  ../icgrep/combine/icgrep-test/files/file45 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "p\?N*\(w\|\S\)\(d\{97,\}\)t\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "w\?\S*\(\(N\|p\)\)t\{120,\}L\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -i -f ../icgrep/combine/icgrep-test/regs/reg46 ../icgrep/combine/icgrep-test/files/file46 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "^.[ا-ي]\N{Oriya}\W*\t{0,53}\w+\d[abc][^XYZ]{109,127}" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -E -e '^.[ا-ي]\N{Oriya}\W*\t{0,53}\w+\d[abc][^XYZ]{109,127}'  ../icgrep/combine/icgrep-test/files/file48 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "^\W[^abc]\t\w*.{0,61}[হ্যালো]+\N{Telugu}\d[0-9]{121,148}" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -i -E -e '^\W[^abc]\t\w*.{0,61}[হ্যালো]+\N{Telugu}\d[0-9]{121,148}'  ../icgrep/combine/icgrep-test/files/file48 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "^[123]+\W{31}\d\u0A13{0,11}(\p{Common}|\S)" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -E -e '^[123]+\W{31}\d\u0A13{0,11}(\p{Common}|\S)'  ../icgrep/combine/icgrep-test/files/file50 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "^[^হ্যালো]+[XYZ]{45}\p{Gurmukhi}\S{0,5}(\d|\W)" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -c -E -e '^[^হ্যালো]+[XYZ]{45}\p{Gurmukhi}\S{0,5}(\d|\W)'  ../icgrep/combine/icgrep-test/files/file50 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "l\(notWord\)\s\{99,138\}ur*L\{158,\}\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -i 'l\(notWord\)\s\{99,138\}ur*L\{158,\}\1$' ../icgrep/combine/icgrep-test/files/file51 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
+echo "L\(.\)l\{89,155\}\sN*D\{118,\}\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -c -i 'L\(.\)l\{89,155\}\sN*D\{118,\}\1$' ../icgrep/combine/icgrep-test/files/file51 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
 
-echo "\S?\D{148}(\s*)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "(\s?)\t{191}[XYZ]*\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -E -f ../icgrep/combine/icgrep-test/regs/reg52 ../icgrep/combine/icgrep-test/files/file52 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "N\S*\s\{139\}u\(d\)notWordr\+\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\sN*d\{90\}utw\(\S\+\)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -i -f ../icgrep/combine/icgrep-test/regs/reg53 ../icgrep/combine/icgrep-test/files/file53 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "^\t\w{27,95}\u112E{62,}\S?.{0,136}(\W)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "^(\S)\w{131,142}\u053D{159,}.?\t{0,107}\W\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -i -E -f ../icgrep/combine/icgrep-test/regs/reg55 ../icgrep/combine/icgrep-test/files/file55 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "notWord\+r*\S\(p\|u\).\?D\{82,187\}$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "p\+w*notWord\(.\|u\)D\?r\{58,187\}$" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -i -f ../icgrep/combine/icgrep-test/regs/reg57 ../icgrep/combine/icgrep-test/files/file57 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "([ا-ي]{180})\t*\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -E -e '([ا-ي]{180})\t*\1'  ../icgrep/combine/icgrep-test/files/file58 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "([0-9]{174})\N{Gurmukhi}*\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -E -e '([0-9]{174})\N{Gurmukhi}*\1'  ../icgrep/combine/icgrep-test/files/file58 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "\(\s*\)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\(L\?\)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep  -f ../icgrep/combine/icgrep-test/regs/reg59 ../icgrep/combine/icgrep-test/files/file59 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "^\w{75,}\s{0,109}\W{68}(\D)\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -E -e '^\w{75,}\s{0,109}\W{68}(\D)\1$'  ../icgrep/combine/icgrep-test/files/file61 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "^\W{131,}\D{0,69}\w{75}(\N{Armenian})\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -E -e '^\W{131,}\D{0,69}\w{75}(\N{Armenian})\1$'  ../icgrep/combine/icgrep-test/files/file61 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "\(L\|l\)t\+w\{75,179\}l\?u\{0,109\}" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep  -e '\(L\|l\)t\+w\{75,179\}l\?u\{0,109\}' ../icgrep/combine/icgrep-test/files/file62 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\(l\|w\)L\+t\{2,75\}w\?u\{0,145\}" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep  -e '\(l\|w\)L\+t\{2,75\}w\?u\{0,145\}' ../icgrep/combine/icgrep-test/files/file62 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "^.\{149,\}u\{51,150\}\(r\+\)\SN\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "^.\{70,\}\(d\{74,87\}\)\S\+ur\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -i -f ../icgrep/combine/icgrep-test/regs/reg64 ../icgrep/combine/icgrep-test/files/file64 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "p\+uL\{183,\}\(notWord*\)w\{149\}d\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -e 'p\+uL\{183,\}\(notWord*\)w\{149\}d\1$' ../icgrep/combine/icgrep-test/files/file67 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "d*p\{20,\}notWord\+L\(u\)r\{108\}\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -i -e 'd*p\{20,\}notWord\+L\(u\)r\{108\}\1$' ../icgrep/combine/icgrep-test/files/file67 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "w\+\(r\?\)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep  'w\+\(r\?\)\1' ../icgrep/combine/icgrep-test/files/file68 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
+echo "\(r\+\).\?\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep  '\(r\+\).\?\1' ../icgrep/combine/icgrep-test/files/file68 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
 
-echo ".{92,148}(\d|\d)\s?" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -E '.{92,148}(\d|\d)\s?'  ../icgrep/combine/icgrep-test/files/file69 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\s{107,171}\d?(\p{Armenian}|.)" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -i -E '\s{107,171}\d?(\p{Armenian}|.)'  ../icgrep/combine/icgrep-test/files/file69 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "[হ্যালো]\w\u1B9E{0,143}(\W|\S)\N{Oriya}\p{Armenian}[a-zA-Z0-9]" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\u12B8[123]\W\D(\S|[A-Za-z])\w\N{Greek}{0,182}" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -E -f ../icgrep/combine/icgrep-test/regs/reg70 ../icgrep/combine/icgrep-test/files/file70 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "\S*\t+\W{29,36}\D{128,}\d{190}" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\W{39,}\D+\t{114}\S{41,195}\d*" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -i -E -f ../icgrep/combine/icgrep-test/regs/reg72 ../icgrep/combine/icgrep-test/files/file72 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "\(N\{128,135\}\)\s\{37\}p\?notWord*\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "notWord*\(L\{140\}\)p\{95,101\}t\?\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -i -f ../icgrep/combine/icgrep-test/regs/reg73 ../icgrep/combine/icgrep-test/files/file73 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "\N{Oriya}+\p{Thaana}*\S?\u06B2{0,50}[A-Za-z]{50,}" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -E '\N{Oriya}+\p{Thaana}*\S?\u06B2{0,50}[A-Za-z]{50,}'  ../icgrep/combine/icgrep-test/files/file75 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\p{Bengali}{0,20}\u1E62{25,}.+\N{Greek}*\t?" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -i -E '\p{Bengali}{0,20}\u1E62{25,}.+\N{Greek}*\t?'  ../icgrep/combine/icgrep-test/files/file75 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "\S{22,}\s+([^XYZ]{125,157})([XYZ]|[ا-ي])\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -E '\S{22,}\s+([^XYZ]{125,157})([XYZ]|[ا-ي])\1'  ../icgrep/combine/icgrep-test/files/file76 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "((\W|\N{Bengali}))\S+[XYZ]{109,119}[^হ্যালো]{127,}\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -c -E '((\W|\N{Bengali}))\S+[XYZ]{109,119}[^হ্যালো]{127,}\1'  ../icgrep/combine/icgrep-test/files/file76 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "notWord\?\(l*\)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\(r\?\)l*\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -f ../icgrep/combine/icgrep-test/regs/reg78 ../icgrep/combine/icgrep-test/files/file78 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "N\{10,\}\s\{5,68\}p\+D\?\(.\{0,48\}\)\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo ".\{170,\}p\{156,171\}\s\+\(D\?\)l\{0,179\}\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep  -f ../icgrep/combine/icgrep-test/regs/reg79 ../icgrep/combine/icgrep-test/files/file79 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "^([XYZ])\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -i -E -e '^([XYZ])\1'  ../icgrep/combine/icgrep-test/files/file80 >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "^([abc])\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+grep -c -i -E -e '^([abc])\1'  ../icgrep/combine/icgrep-test/files/file80 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "\N{Kannada}*(\w{89})\W?(\t|\W).+\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "\W*\s{13}[123]?((\t|\s)).+\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -i -E -f ../icgrep/combine/icgrep-test/regs/reg82 ../icgrep/combine/icgrep-test/files/file82 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
-echo "^\S\{156,\}l\?r\{0,9\}notWord.\{99\}d$" >> ../icgrep/combine/icgrep-test/grep/grep-result
+echo "^.\{59,\}N\?l\{0,169\}notWordr\{153\}d$" >> ../icgrep/combine/icgrep-test/grep/grep-result
 grep -c -i -f ../icgrep/combine/icgrep-test/regs/reg83 ../icgrep/combine/icgrep-test/files/file83 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "w\sul\{8,\}t*notWord\{44,46\}" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep  -e 'w\sul\{8,\}t*notWord\{44,46\}' ../icgrep/combine/icgrep-test/files/file85 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "^\S\s.L\{46,111\}Nlr\{46\}uD\{0,187\}$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -f ../icgrep/combine/icgrep-test/regs/reg86 ../icgrep/combine/icgrep-test/files/file86 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "\u1BE1*\w{133,160}(.{178,})\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -i -E '\u1BE1*\w{133,160}(.{178,})\1'  ../icgrep/combine/icgrep-test/files/file88 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "l\{0,195\}\s\{55\}D.\+r*\(notWord\{76,127\}\)tp\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep  -f ../icgrep/combine/icgrep-test/regs/reg90 ../icgrep/combine/icgrep-test/files/file90 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "(\w+).{74}\u1BC6{152,}\W?\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -E -f ../icgrep/combine/icgrep-test/regs/reg92 ../icgrep/combine/icgrep-test/files/file92 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "[^abc]*[123]{0,73}\s{19,}\S{67,179}" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -E '[^abc]*[123]{0,73}\s{19,}\S{67,179}'  ../icgrep/combine/icgrep-test/files/file93 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "\D*(\s{182})\t+\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -i -E -e '\D*(\s{182})\t+\1'  ../icgrep/combine/icgrep-test/files/file95 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "d\{31,\}\(w\|p\)\(u\{47\}\)r\{0,67\}\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep  -f ../icgrep/combine/icgrep-test/regs/reg96 ../icgrep/combine/icgrep-test/files/file96 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo ".\{150,\}D\+Ldl\(t\{0,108\}\)\S\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c '.\{150,\}D\+Ldl\(t\{0,108\}\)\S\1$' ../icgrep/combine/icgrep-test/files/file97 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
-
-echo "^\p{Cyrillic}[^হ্যালো]*\W\D{100,}\t?\s" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -E -f ../icgrep/combine/icgrep-test/regs/reg98 ../icgrep/combine/icgrep-test/files/file98 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -E -f ../icgrep/combine/icgrep-test/regs/reg99 ../icgrep/combine/icgrep-test/files/file99 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "[123]{168}((\D|[a-zA-Z0-9]))[^XYZ]{94,145}\w+\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -i -E -f ../icgrep/combine/icgrep-test/regs/reg101 ../icgrep/combine/icgrep-test/files/file101 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "\S\{0,46\}D\+" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i '\S\{0,46\}D\+' ../icgrep/combine/icgrep-test/files/file102 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
-
-echo "^.\{177\}L\?N\{0,37\}\(D\|u\)notWordt\s\+" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -f ../icgrep/combine/icgrep-test/regs/reg104 ../icgrep/combine/icgrep-test/files/file104 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "d\{69,\}\S\{59,144\}u*" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -f ../icgrep/combine/icgrep-test/regs/reg106 ../icgrep/combine/icgrep-test/files/file106 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "^[^হ্যালো]\D\p{Gurmukhi}\N{Armenian}\w[XYZ]?." >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -E -f ../icgrep/combine/icgrep-test/regs/reg107 ../icgrep/combine/icgrep-test/files/file107 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "\W?(\w|[A-Za-z]).{66,}[XYZ]*\p{Oriya}{194}" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -E '\W?(\w|[A-Za-z]).{66,}[XYZ]*\p{Oriya}{194}'  ../icgrep/combine/icgrep-test/files/file108 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "^\s\{136,\}u*rt\{157,185\}D\(notWord\+\)\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep  -e '^\s\{136,\}u*rt\{157,185\}D\(notWord\+\)\1$' ../icgrep/combine/icgrep-test/files/file111 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "\(u\?\)p\+l*\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -e '\(u\?\)p\+l*\1' ../icgrep/combine/icgrep-test/files/file112 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "\(r\{186\}\).*\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -f ../icgrep/combine/icgrep-test/regs/reg113 ../icgrep/combine/icgrep-test/files/file113 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "(\d|[^abc])[A-Za-z]{79,139}\S{11,}\s\t\W\D\p{Gurmukhi}$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -i -E '(\d|[^abc])[A-Za-z]{79,139}\S{11,}\s\t\W\D\p{Gurmukhi}$'  ../icgrep/combine/icgrep-test/files/file114 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "\u0754{27,}\w{0,100}\t+\p{Telugu}?\d*[^XYZ]{77}" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -E -f ../icgrep/combine/icgrep-test/regs/reg116 ../icgrep/combine/icgrep-test/files/file116 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "[^abc]*" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -E '[^abc]*'  ../icgrep/combine/icgrep-test/files/file117 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "^uwlLnotWord*$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -i '^uwlLnotWord*$' ../icgrep/combine/icgrep-test/files/file120 >> ../icgrep/combine/icgrep-test/grep/icgrep-result
-
-echo "\s\+\(L\|N\)notWordD" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -f ../icgrep/combine/icgrep-test/regs/reg121 ../icgrep/combine/icgrep-test/files/file121 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "r\{124,\}l\+t\{27\}" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -f ../icgrep/combine/icgrep-test/regs/reg123 ../icgrep/combine/icgrep-test/files/file123 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "^\p{Telugu}.([হ্যালো])\d{158,}\t[0-9]*\W\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -E -e '^\p{Telugu}.([হ্যালো])\d{158,}\t[0-9]*\W\1'  ../icgrep/combine/icgrep-test/files/file124 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "(\p{Greek}{14})\s+\u1A57{3,}[^হ্যালো]{73,74}\D?[A-Za-z]{0,155}\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -E -f ../icgrep/combine/icgrep-test/regs/reg126 ../icgrep/combine/icgrep-test/files/file126 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "\D{171}([abc]|\p{Armenian})[^abc]{0,24}\u0975\N{Thaana}*\W{0,160}\S+" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -E '\D{171}([abc]|\p{Armenian})[^abc]{0,24}\u0975\N{Thaana}*\W{0,160}\S+'  ../icgrep/combine/icgrep-test/files/file127 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "\(u\)L\S\{11,\}lt\s\{126\}p\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -e '\(u\)L\S\{11,\}lt\s\{126\}p\1$' ../icgrep/combine/icgrep-test/files/file128 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "[^abc]{9,}\S{6,84}[A-Za-z]?\D*" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -i -E -e '[^abc]{9,}\S{6,84}[A-Za-z]?\D*'  ../icgrep/combine/icgrep-test/files/file129 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "^(\u06BE)\d{68,131}\1$" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -i -E -f ../icgrep/combine/icgrep-test/regs/reg130 ../icgrep/combine/icgrep-test/files/file130 >> ../icgrep/combine/icgrep-test/grep/grep-result
-
-echo "\(w\+\)t*\1" >> ../icgrep/combine/icgrep-test/grep/grep-result
-grep -c -f ../icgrep/combine/icgrep-test/regs/reg131 ../icgrep/combine/icgrep-test/files/file131 >> ../icgrep/combine/icgrep-test/grep/grep-result
 
